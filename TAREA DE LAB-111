@@ -1,0 +1,125 @@
+if(1<2):
+    name = input('Ingrese su nombre de usuario: ')
+    if name != "Niki": # El usuario es Niki
+        print ("Nombre de usuario incorrecto")
+    else:
+        if name == 'Niki':
+            pasw = input('Ingrese su contraseña: ')
+            if (pasw != 'ñjljxbsbnbnbñjrvjtqf'):
+                        #La contraseña es ñjljxbsbnbnbñjrvjtqf
+                print ("----->Contraseña incorrecta!!!!")          
+            else:
+                print ("-------------------------------------- ")
+                print(":)------ Bienvenido a la sesión ------(:")
+                print ("-------------------------------------- ")
+                print("")
+                def menuPrincipal():
+                    while True:
+                        print("================================== ")
+                        print("============== MENU ============== ")
+                        print("================================== ")
+                        print("== a) División de 2 Números     == ")
+                        print("== b) Divisores                 == ")
+                        print("== c)Cambio de Base             == ")
+                        print("== d) Salir                     == ")
+                        print("================================== ")
+                        opcion2 = input().lower();
+                        if opcion2 in "a,b,c,d".split(','):
+                            return opcion2
+                def main():
+                    while True:
+                        opcion2 = menuPrincipal()
+                        if opcion2 == 'd':
+                            break
+                        elif opcion2 == 'a':
+                            div=int(0)
+                            res=int(0)
+                            resto=int(0)
+                            a = int(input("Numero 1 > "))
+                            b = int(input("Numero 2 > "))
+                            i=1
+                            for i in range(a):
+                                res = res+1
+                                print("El res es: ",res)
+                            a=a-b
+                            if(b > a):
+                                print("El resultado es: ",0)
+                            else:
+                                while (a >= 0):
+                                    div=int(div+1)
+                                    a=a-b
+                            print("El resultado es: ",div)
+                            if (res == div):
+                                resto = res - div
+                                print("El resto es--: ",resto)
+                            else:
+                                div = div * b
+                                resto=res - div
+                                print("El resto es-: ",resto)          
+                        elif opcion2 == 'b':
+                            def division():
+                                a = int(numero)
+                                b = int(divisor)
+                                for i in range(a):
+                                    while a >= 0:
+                                        a=a-b
+                                        i=i+1
+                                        if (a == 0):
+                                            return a
+                            print("introduzca el numero")
+                            numero = int(input())
+                            while numero > 99999999999999:
+                                contador = 0
+                                print("los divisores de ",numero)
+                                for divisor in range(1,numero+1):
+                                    if ( division() == 0 ):
+                                        print(divisor,"es divisor")
+                                        contador += 1
+                                print("el numero ",numero," tiene ",contador," divisores")
+                        elif opcion2 == 'c':
+                            def imprime_digito_en_base(digito):
+                                if digito < 10:
+                                    print("{:d}".format(digito), end="")
+                                else:
+                                    digito_transformado = chr(digito - 10 + ord('A'))
+                                    print("{}".format(digito_transformado), end="")
+
+                            def imprime_en_otra_base(numero, base):
+                                if numero > 0:
+                                    div=int(0)
+                                    res=int(0)
+                                    resto=int(0)
+                                    a = numero
+                                    b = base
+                                    for i in range(a):
+                                        res = res+1
+                                    a=a-b
+                                    if(b > a):
+                                        numero=0
+                                        digito=a
+                                    else:
+                                        while (a >= 0):
+                                            div=int(div+1)
+                                            a=a-b
+                                    numero=div
+                                    if (res == div):
+                                        resto = res - div
+                                        digito=resto
+                                    else:
+                                        div = div * b
+                                        resto=res - div
+                                        digito=resto
+                                    imprime_en_otra_base(numero, base)
+                                    imprime_digito_en_base(digito)
+                                
+                            numero=int(input("Ingrese número en base 10: "))
+                            base=int(input("Ingrese base: "))
+
+                            if base >= 2 and base <= 16:
+                                imprime_en_otra_base(numero, base)
+                                print("")
+                            else:
+                                print("Debe ingresar una base entre 2 y 16")
+                                        
+                if __name__ == "__main__":
+                    main()
